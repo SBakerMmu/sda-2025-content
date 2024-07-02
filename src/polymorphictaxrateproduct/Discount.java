@@ -1,4 +1,4 @@
-package polymorphicsellingpriceproduct;
+package polymorphictaxrateproduct;
 
 public class Discount
 {

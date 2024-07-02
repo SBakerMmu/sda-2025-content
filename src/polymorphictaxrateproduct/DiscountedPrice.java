@@ -1,4 +1,4 @@
-package polymorphicsellingpriceproduct;
+package polymorphictaxrateproduct;
 
 class DiscountedPrice implements SellingPrice {
 
