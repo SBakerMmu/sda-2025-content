@@ -1,4 +1,4 @@
-﻿package generalstrategy;
+package generalstrategy;
 
 public class ConcreteStrategy implements Strategy {
     @Override

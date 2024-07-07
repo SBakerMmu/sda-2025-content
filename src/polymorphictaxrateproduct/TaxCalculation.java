@@ -1,4 +1,4 @@
-﻿package polymorphictaxrateproduct;
+package polymorphictaxrateproduct;
 
 public interface TaxCalculation {
     Tax get(Price price);

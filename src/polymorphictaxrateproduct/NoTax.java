@@ -1,4 +1,4 @@
-﻿package polymorphictaxrateproduct;
+package polymorphictaxrateproduct;
 
 public class NoTax implements TaxCalculation {
 
