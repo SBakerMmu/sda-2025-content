@@ -20,7 +20,7 @@ public class Product {
         sellingPrice = sellingPrice.removeDiscount();
     }
 
-    public Price getSellingPrice() {
+    public Price getPrice() {
 
         return sellingPrice.get();
     }

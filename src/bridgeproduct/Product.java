@@ -1,12 +1,12 @@
-package polymorphictaxrateproduct;
+package bridgeproduct;
 
-public class Product {
+public abstract class Product {
 
     private SellingPrice sellingPrice;
     private final MinimumPrice minimumPrice;
     private final TaxCalculation taxCalculation;
 
-    public Product(FullPrice price, MinimumPrice minimumPrice, TaxCalculation taxCalculation) {
+    protected Product(FullPrice price, MinimumPrice minimumPrice, TaxCalculation taxCalculation) {
         this.sellingPrice = price;
         this.minimumPrice = minimumPrice;
         this.taxCalculation = taxCalculation;
@@ -27,4 +27,6 @@ public class Product {
         Tax tax = taxCalculation.get(sellingPriceExcludingTax);
         return new Price(sellingPriceExcludingTax.get() + tax.get());
     }
+
+    public abstract void print(ProductPrinter printer);
 }

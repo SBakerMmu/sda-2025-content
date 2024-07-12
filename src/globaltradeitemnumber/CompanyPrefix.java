@@ -2,7 +2,7 @@ package globaltradeitemnumber;
 
 import java.util.Objects;
 
-public class CompanyPrefix {
+public final class CompanyPrefix {
     static final int LENGTH = 6;
     private static final int MIN = 100000; //there is a rule about GS1 Company Prefixes being > 100000
     private static final int MAX = 999999;

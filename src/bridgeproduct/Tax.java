@@ -1,4 +1,4 @@
-package polymorphictaxrateproduct;
+package bridgeproduct;
 
 public class Tax {
 

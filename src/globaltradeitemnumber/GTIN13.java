@@ -2,7 +2,7 @@ package globaltradeitemnumber;
 
 import java.util.Objects;
 
-public class GTIN13 {
+public final class GTIN13 {
     private static final int LENGTH = CompanyPrefix.LENGTH + ItemReference.LENGTH + 1;
     private final CompanyPrefix prefix;
     private final ItemReference itemReference;
