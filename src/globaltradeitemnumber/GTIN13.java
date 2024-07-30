@@ -3,7 +3,7 @@ package globaltradeitemnumber;
 import java.util.Objects;
 
 public final class GTIN13 {
-    private static final int LENGTH = CompanyPrefix.LENGTH + ItemReference.LENGTH + 1;
+    public static final int LENGTH = CompanyPrefix.LENGTH + ItemReference.LENGTH + 1;
     private final CompanyPrefix prefix;
     private final ItemReference itemReference;
     private final int checksum;
@@ -16,6 +16,14 @@ public final class GTIN13 {
         ItemReference itemReference = new ItemReference(Integer.parseInt(s.substring(CompanyPrefix.LENGTH, LENGTH - 1)));
         return new GTIN13(prefix, itemReference);
     }
+
+    public static GTIN13 tryParse(String s) throws InvalidException {
+
+        if(isValid(s)) return parse(s);
+        else return null;
+    }
+
+
 
     static String requireValidGlobalTradeIdentifierString(String s) throws InvalidException
     {

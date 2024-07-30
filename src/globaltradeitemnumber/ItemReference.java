@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public final class ItemReference {
 
-    static final int LENGTH = 6;
+    public static final int LENGTH = 6;
     private static final int MIN = 1;
     private static final int MAX = 999999;
     private final int value;

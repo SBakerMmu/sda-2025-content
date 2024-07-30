@@ -3,10 +3,10 @@ package globaltradeitemnumber;
 import java.util.Objects;
 
 public final class ASIN {
-    private static final int LENGTH = 10;
+    public static final int LENGTH = 10;
     private final String id;
 
-    public static boolean isValid(String s) {
+    static boolean isValid(String s) {
         return isValidLength(s) && isValidCharacters(s);
     }
 
@@ -20,6 +20,10 @@ public final class ASIN {
             if (!Character.isDigit(c) && !Character.isLetter(c)) return false;
         }
         return true;
+    }
+
+    public static ASIN parse(String id) throws InvalidException {
+        return new ASIN(id);
     }
 
 

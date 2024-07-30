@@ -18,6 +18,18 @@ public class Example {
         printer = new PriceTicketPrinter();
         product.print(printer);
 
+        ProductFactory productFactory = new AmazonProductFactory();
+        product = productFactory.create("B09P4L33SW", fullPrice, minimumPrice, standardTax);
+        printer = new BagLabelPrinter();
+        product.print(printer);
+
+        TaxCalculation zeroRateTax =  new NoTax();
+        productFactory = new RetailProductFactory();
+        product = productFactory.create("705353135569", fullPrice, minimumPrice, zeroRateTax);
+        printer = new PriceTicketPrinter();
+        product.print(printer);
+
+
     }
 
 }
