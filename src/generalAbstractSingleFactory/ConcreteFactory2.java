@@ -1,4 +1,4 @@
-﻿package generalAbstractSingleFactory;
+package generalAbstractSingleFactory;
 public class ConcreteFactory2 implements AbstractFactory {
     @Override
     public AbstractInterface create() {

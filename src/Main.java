@@ -37,8 +37,9 @@ public class Main {
 
         System.out.printf("%s = %s %b\n", gtin,scannedGtin, gtin.equals(scannedGtin) );
 
-        bridgeproduct.Example.Run();
+        bridgeproduct.Example.run();
 
+        generalBridge.Example.run();
 
 
     }

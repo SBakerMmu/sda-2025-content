@@ -2,11 +2,9 @@ package bridgeproduct;
 
 import globaltradeitemnumber.*;
 
-import java.awt.color.ProfileDataException;
-
 public class Example {
 
-    public static void Run() throws InvalidException {
+    public static void run() throws InvalidException {
         FullPrice fullPrice = new FullPrice(100.0d);
         MinimumPrice minimumPrice = new MinimumPrice(75.0d);
         TaxCalculation standardTax = new StandardTax();

@@ -1,4 +1,4 @@
-﻿package generalAbstractFamilyFactory;
+package generalAbstractFamilyFactory;
 
 public class ConcreteFactory2 implements AbstractFactory {
     @Override

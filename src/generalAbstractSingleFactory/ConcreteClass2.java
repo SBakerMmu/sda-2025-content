@@ -1,4 +1,4 @@
-﻿package generalAbstractSingleFactory;
+package generalAbstractSingleFactory;
 
 
 public class ConcreteClass2 implements AbstractInterface {
