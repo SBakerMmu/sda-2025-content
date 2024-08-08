@@ -27,6 +27,8 @@ public class Example {
         printer = new PriceTicketPrinter();
         product.print(printer);
 
+        double pounds = PriceUtility.getPounds(product.getPrice());
+        double pence = PriceUtility.getPence(product.getPrice());
 
     }
 
