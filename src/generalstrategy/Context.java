@@ -1,6 +1,6 @@
 package generalstrategy;
 
-public class Context {
+class Context {
 
     private final Strategy strategy;
 

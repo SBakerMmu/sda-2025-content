@@ -1,5 +1,5 @@
 package generalAbstractSingleFactory;
 
-public interface AbstractFactory {
+interface AbstractFactory {
     AbstractInterface create();
 }

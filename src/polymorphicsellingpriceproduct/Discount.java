@@ -1,6 +1,6 @@
 package polymorphicsellingpriceproduct;
 
-public class Discount
+class Discount
 {
     static final Discount NO_DISCOUNT = new Discount();
     static final double MIN_DISCOUNT = 0.0d;

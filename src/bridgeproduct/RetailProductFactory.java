@@ -2,7 +2,7 @@ package bridgeproduct;
 
 import globaltradeitemnumber.*;
 
-public class RetailProductFactory implements  ProductFactory {
+class RetailProductFactory implements  ProductFactory {
     public Product create(String id, FullPrice price, MinimumPrice minimumPrice, TaxCalculation taxCalculation) throws InvalidException {
         CompanyPrefix prefix = new CompanyPrefix(Integer.parseInt(id.substring(0, CompanyPrefix.LENGTH)));
         ItemReference itemReference = new ItemReference(Integer.parseInt(id.substring(CompanyPrefix.LENGTH, GTIN13.LENGTH - 1)));

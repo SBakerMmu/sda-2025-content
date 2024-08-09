@@ -1,6 +1,6 @@
 package simpleproduct;
 
-public class FullPrice extends Price
+class FullPrice extends Price
 {
     static final double MIN_PRICE = 0.0d;
     final private double price;

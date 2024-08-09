@@ -1,6 +1,6 @@
 package bridgeproduct;
 
-public class FullPrice implements SellingPrice
+class FullPrice implements SellingPrice
 {
     static final double NO_PRICE = 0.0d;
     final private Price price;

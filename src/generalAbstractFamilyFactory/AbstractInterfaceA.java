@@ -1,5 +1,5 @@
 package generalAbstractFamilyFactory;
 
-public interface AbstractInterfaceA {
+interface AbstractInterfaceA {
     void operationA();
 }

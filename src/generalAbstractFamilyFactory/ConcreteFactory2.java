@@ -1,6 +1,6 @@
 package generalAbstractFamilyFactory;
 
-public class ConcreteFactory2 implements AbstractFactory {
+class ConcreteFactory2 implements AbstractFactory {
     @Override
     public AbstractInterfaceA createA() {
 

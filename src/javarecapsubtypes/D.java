@@ -1,6 +1,6 @@
 package javarecapsubtypes;
 
-public class D implements MyInterface {
+class D implements MyInterface {
     @Override
     public void interfaceMethodA() {
         System.out.printf("Hello from D.interfaceMethodA%n");

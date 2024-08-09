@@ -1,5 +1,5 @@
 package mypackage;
- public class MyClass {
+ class MyClass {
     String myClassField = "";
 
     public void MyMethod()

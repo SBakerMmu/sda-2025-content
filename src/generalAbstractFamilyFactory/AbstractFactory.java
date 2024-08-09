@@ -1,6 +1,6 @@
 package generalAbstractFamilyFactory;
 
-public interface AbstractFactory {
+interface AbstractFactory {
 
     AbstractInterfaceA createA();
 

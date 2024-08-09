@@ -1,6 +1,6 @@
 package bridgeproduct;
 
-public interface ProductPrinter {
+interface ProductPrinter {
 
     void print(AmazonProduct product);
 

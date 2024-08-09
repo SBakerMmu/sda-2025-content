@@ -1,5 +1,5 @@
 package simpleproduct;
-public class Product {
+class Product {
 
     static final double MIN_SELLING_PRICE = 1.0d;
     private double price = 0d;

@@ -1,7 +1,6 @@
-import simpleproduct.FullPrice;
-import simpleproduct.SellingPrice;
+package simpleproduct;
 
-public class ImmutableSellableProduct {
+class ImmutableSellableProduct {
     private final SellingPrice price;
 
     public ImmutableSellableProduct(FullPrice price) {

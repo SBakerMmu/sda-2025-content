@@ -1,4 +1,4 @@
 package generalstrategy;
-public interface Strategy {
+interface Strategy {
     void algorithm();
 }

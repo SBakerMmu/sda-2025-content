@@ -2,7 +2,7 @@ package bridgeproduct;
 
 import globaltradeitemnumber.GTIN13;
 
-public class RetailProduct extends Product {
+class RetailProduct extends Product {
     private final GTIN13 id;
 
     public RetailProduct(GTIN13 id, FullPrice price, MinimumPrice minimumPrice, TaxCalculation taxCalculation) {

@@ -1,4 +1,4 @@
-public class E extends D {
+class E extends D {
     @Override
     public void methodA() {
         //implementation

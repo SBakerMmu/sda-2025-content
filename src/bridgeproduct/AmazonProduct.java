@@ -2,7 +2,7 @@ package bridgeproduct;
 
 import globaltradeitemnumber.ASIN;
 
-public class AmazonProduct extends Product {
+class AmazonProduct extends Product {
     private final ASIN asin;
 
     public AmazonProduct(ASIN asin, FullPrice price, MinimumPrice minimumPrice, TaxCalculation taxCalculation) {

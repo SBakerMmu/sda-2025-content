@@ -1,6 +1,6 @@
 package bridgeproduct;
 
-public class MinimumPrice
+class MinimumPrice
 {
     public static final MinimumPrice ZERO = new MinimumPrice(MinimumPrice.NO_PRICE);
     static final double NO_PRICE = 0.0d;

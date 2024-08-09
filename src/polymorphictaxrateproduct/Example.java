@@ -1,6 +1,6 @@
 package polymorphictaxrateproduct;
 
-public class Example {
+public final class Example {
 
     public static void Run() {
         FullPrice fullPrice = new FullPrice(100.0d);

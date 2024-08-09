@@ -1,6 +1,6 @@
 package generalstrategy;
 
-public class Example {
+public final class Example {
 
     static void RunExample()
     {

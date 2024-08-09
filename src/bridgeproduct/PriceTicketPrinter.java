@@ -1,6 +1,6 @@
 package bridgeproduct;
 
-public class PriceTicketPrinter implements ProductPrinter{
+class PriceTicketPrinter implements ProductPrinter{
     @Override
     public void print(AmazonProduct product) {
         System.out.format("Price Ticket for Amazon ASIN:%s Price:%s%n", product.getAsin(), product.getPrice());

@@ -1,6 +1,6 @@
 package polymorphictaxrateproduct;
 
-public class Price
+class Price
 {
     static final double NO_PRICE = 0.0d;
     final private double price;

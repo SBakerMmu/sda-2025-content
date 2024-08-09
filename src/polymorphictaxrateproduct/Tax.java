@@ -1,6 +1,6 @@
 package polymorphictaxrateproduct;
 
-public class Tax {
+class Tax {
 
     static final double NO_TAX = 0.0d;
     public static final Tax ZERO = new Tax(NO_TAX);

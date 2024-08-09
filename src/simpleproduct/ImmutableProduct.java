@@ -1,4 +1,6 @@
-public class ImmutableProduct {
+package simpleproduct;
+
+class ImmutableProduct {
     static final double MIN_SELLING_PRICE = 1.0d;
     static final double NO_DISCOUNT = 0.0d;
     private final double price;

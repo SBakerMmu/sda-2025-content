@@ -1,6 +1,6 @@
 package generalBridge;
 
-public class Example {
+public final class Example {
 
     public static void run() {
         Implementor implementation = new ConcreteImplementorA();

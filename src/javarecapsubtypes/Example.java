@@ -1,6 +1,6 @@
 package javarecapsubtypes;
 
-public class Example {
+public final class Example {
 
     public static void run()
     {

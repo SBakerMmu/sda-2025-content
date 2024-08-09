@@ -1,6 +1,6 @@
 package globaltradeitemnumber;
 
-public class InvalidNumberRangeException extends InvalidException {
+class InvalidNumberRangeException extends InvalidException {
     public final int value;
     public  final int min;
     public  final int max;

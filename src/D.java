@@ -1,4 +1,4 @@
-public abstract class D implements MyInterface
+abstract class D implements MyInterface
 {
     public abstract void methodA();
 

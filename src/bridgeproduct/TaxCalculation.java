@@ -1,6 +1,6 @@
 package bridgeproduct;
 
-public interface TaxCalculation {
+interface TaxCalculation {
     Tax get(Price price);
 }
 

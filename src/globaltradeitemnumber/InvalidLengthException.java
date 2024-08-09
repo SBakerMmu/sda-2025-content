@@ -1,6 +1,6 @@
 package globaltradeitemnumber;
 
-public class InvalidLengthException extends InvalidException {
+class InvalidLengthException extends InvalidException {
     public final String invalidString;
     public final int maxLength;
     public InvalidLengthException(String s, int maxLength)

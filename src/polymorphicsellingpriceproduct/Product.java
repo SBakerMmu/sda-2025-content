@@ -1,6 +1,6 @@
 package polymorphicsellingpriceproduct;
 
-public class Product {
+class Product {
 
     private SellingPrice sellingPrice;
     private final MinimumPrice minimumPrice;

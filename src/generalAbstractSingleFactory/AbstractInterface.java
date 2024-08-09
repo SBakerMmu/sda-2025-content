@@ -1,5 +1,5 @@
 package generalAbstractSingleFactory;
 
-public interface AbstractInterface {
+interface AbstractInterface {
     public void operation();
 }

@@ -1,6 +1,6 @@
 package bridgeproduct;
 
-public class BagLabelPrinter implements ProductPrinter {
+class BagLabelPrinter implements ProductPrinter {
     @Override
     public void print(AmazonProduct product) {
         System.out.format("Bag Label for Amazon ASIN:%s Price:%s%n", product.getAsin(), product.getPrice());
