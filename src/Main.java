@@ -21,5 +21,13 @@ public class Main {
         generalBridge.Example.run();
 
         decorators.Example.run();
+
+        generalDecorator.Example.run();
+
+        chainOfResponsiblity.Example.run();
+
+        generalChainOfResponsiblity.Example.run();
+
+        generalAdaptor.Example.run();
     }
 }
