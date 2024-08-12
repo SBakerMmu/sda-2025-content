@@ -29,5 +29,7 @@ public class Main {
         generalChainOfResponsiblity.Example.run();
 
         generalAdaptor.Example.run();
+
+        simpleObserver.Example.run();;
     }
 }
