@@ -30,6 +30,13 @@ public class Main {
 
         generalAdaptor.Example.run();
 
-        simpleObserver.Example.run();;
+        simpleObserver.Example.run();
+
+        multiObserver.Example.run();
+
+        orderObserver.Example.run();
+
+        generalPushObserver.Example.run();
+        generalPullObserver.Example.run();
     }
 }

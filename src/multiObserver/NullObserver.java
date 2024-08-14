@@ -1,6 +1,6 @@
 package multiObserver;
 
-class NullObserver implements Observer {
+class NullObserver implements MyClassObserver {
     @Override
     public void onOperationCalled(String parameter) {
         //do nothing

@@ -1,6 +1,6 @@
-package multiObserver;
+package simpleObserver;
 
-class ConcreteObserver implements Observer {
+class ConsoleObserver implements MyClassObserver {
     @Override
     public void onOperationCalled(String parameter) {
         System.out.format("myOperation() called with parameter %s\n", parameter);

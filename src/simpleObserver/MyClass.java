@@ -2,9 +2,9 @@ package simpleObserver;
 
 class MyClass {
 
-    final Observer observer;
+    final MyClassObserver observer;
 
-    MyClass(Observer observer) {
+    MyClass(MyClassObserver observer) {
         this.observer = observer;
     }
 

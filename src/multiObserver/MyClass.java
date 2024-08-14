@@ -5,9 +5,9 @@ import java.util.List;
 
 class MyClass {
 
-    final List<Observer> observers = new ArrayList<>();
+    final List<MyClassObserver> observers = new ArrayList<>();
 
-    void addObserver(Observer observer) {
+    void addObserver(MyClassObserver observer) {
         observers.add(observer);
     }
 
@@ -15,7 +15,7 @@ class MyClass {
     void myOperation(String operationParameter) {
         //do the operation
         //notify the observers
-        for (Observer observer : observers) {
+        for (MyClassObserver observer : observers) {
             observer.onOperationCalled(operationParameter);
         }
     }

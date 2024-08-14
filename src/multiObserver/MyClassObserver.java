@@ -1,5 +1,5 @@
 package multiObserver;
 
-interface Observer {
+interface MyClassObserver {
     void onOperationCalled(String parameter);
 }

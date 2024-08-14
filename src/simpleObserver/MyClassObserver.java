@@ -1,5 +1,5 @@
 package simpleObserver;
 
-interface Observer {
+interface MyClassObserver {
     void onOperationCalled(String parameter);
 }
