@@ -1,6 +1,6 @@
 package generalAdaptor;
 
-interface Adaptee {
-
-    void operation2();
+class Adaptee {
+    public void operation2() {
+    }
 }

@@ -37,6 +37,13 @@ public class Main {
         orderObserver.Example.run();
 
         generalPushObserver.Example.run();
+
         generalPullObserver.Example.run();
+
+        dipConcreteExample.Example.run();
+
+        dipAbstractExample.Example.run();
+
+        mediator.Example.run();
     }
 }

@@ -1,6 +1,6 @@
 package generalAdaptor;
 
-class Adapter {
+class Adapter implements Target {
 
     final Adaptee adaptee;
 
@@ -8,10 +8,10 @@ class Adapter {
         this.adaptee = adaptee;
     }
 
-    void operation() {
+    @Override
+    public void operation() {
         //do whatever is necessary to convert the operation() call to a call to operation2() on the adaptee interface
         adaptee.operation2();
-        ;
     }
 }
 
