@@ -45,5 +45,7 @@ public class Main {
         dipAbstractExample.Example.run();
 
         mediator.Example.run();
+
+        facade.Example.run();
     }
 }

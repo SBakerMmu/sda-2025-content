@@ -18,10 +18,8 @@ public final class Example {
         System.out.format("Current price with discount: %s%n", basket.getTotalWithDiscount());
         basket.addProduct(a2);
         System.out.format("Current price with discount: %s%n", basket.getTotalWithDiscount());
-        basket.removeProduct(a2);
+        discounter.setDiscountCode("Discount50");
         System.out.format("Current price with discount: %s%n", basket.getTotalWithDiscount());
-
-        mediator.deregister();
     }
 
 

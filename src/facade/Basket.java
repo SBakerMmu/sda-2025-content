@@ -1,26 +1,20 @@
-package mediator;
+package facade;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Basket implements Colleague {
+class Basket{
 
     private final List<Product> products = new ArrayList<>();
-    private Mediator mediator;
     double discount = 0;
 
-    public Basket(Mediator mediator) {
-        this.mediator = mediator;
-    }
 
     public void addProduct(Product product) {
         products.add(product);
-        mediator.onChanged(this);
     }
 
     public void removeProduct(Product product) {
         products.remove(product);
-        mediator.onChanged(this);
     }
 
     public double getTotal() {

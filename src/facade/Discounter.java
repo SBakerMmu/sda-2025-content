@@ -1,6 +1,6 @@
-package mediator;
+package facade;
 
-class Discounter implements Colleague {
+class Discounter {
 
     private static final double discount0 = 0.0d;
     private static final double discount10 = 0.1d;
@@ -9,12 +9,8 @@ class Discounter implements Colleague {
     private static final double discount40 = 0.4d;
     private static final double discount50 = 0.5d;
 
-    private Mediator mediator;
     private double discount = 0d;
 
-    public Discounter(Mediator mediator) {
-        this.mediator = mediator;
-    }
 
     public double getDiscount() {
         return discount;
@@ -23,7 +19,6 @@ class Discounter implements Colleague {
     public void setTotal(double total) {
         double totalDiscount = total > 100d ? discount20 : discount0;
         discount = Math.max(discount, totalDiscount);
-        mediator.onChanged(this);
     }
 
     public void setDiscountCode(String code) {
@@ -38,8 +33,6 @@ class Discounter implements Colleague {
         };
 
         discount = Math.max(discount, codeDiscount);
-        mediator.onChanged(this);
-
     }
 }
 
