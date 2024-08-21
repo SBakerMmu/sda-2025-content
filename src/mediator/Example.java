@@ -15,11 +15,11 @@ public final class Example {
         Product a2 = new Product("A2", 250.0d);
 
         basket.addProduct(a1);
-        System.out.format("Current price with discount: %s%n", basket.getTotalWithDiscount());
+        System.out.format("Using Mediator: Current price with discount: %s%n", basket.getTotalWithDiscount());
         basket.addProduct(a2);
-        System.out.format("Current price with discount: %s%n", basket.getTotalWithDiscount());
+        System.out.format("Using Mediator: Current price with discount: %s%n", basket.getTotalWithDiscount());
         discounter.setDiscountCode("Discount50");
-        System.out.format("Current price with discount: %s%n", basket.getTotalWithDiscount());
+        System.out.format("Using Mediator: Current price with discount: %s%n", basket.getTotalWithDiscount());
     }
 
 

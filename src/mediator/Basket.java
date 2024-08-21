@@ -6,7 +6,7 @@ import java.util.List;
 class Basket implements Colleague {
 
     private final List<Product> products = new ArrayList<>();
-    private Mediator mediator;
+    private final Mediator mediator;
     double discount = 0;
 
     public Basket(Mediator mediator) {

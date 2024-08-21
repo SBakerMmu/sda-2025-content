@@ -9,7 +9,7 @@ class Discounter implements Colleague {
     private static final double discount40 = 0.4d;
     private static final double discount50 = 0.5d;
 
-    private Mediator mediator;
+    private final Mediator mediator;
     private double discount = 0d;
 
     public Discounter(Mediator mediator) {

@@ -1,7 +1,6 @@
 package mediator;
 
 interface Colleague {
-
 }
 
 

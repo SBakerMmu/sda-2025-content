@@ -1,8 +1,6 @@
 package mediator;
 
 class PricingMediator implements Mediator {
-
-
     private Basket basket;
     private Discounter discounter;
 
