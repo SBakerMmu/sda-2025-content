@@ -4,12 +4,9 @@ class PricingMediator implements Mediator {
     private Basket basket;
     private Discounter discounter;
 
-    public void register(Basket basket)
+    public void registerColleagues(Basket basket, Discounter discounter)
     {
         this.basket = basket;
-    }
-    public void register(Discounter discounter)
-    {
         this.discounter = discounter;
     }
 

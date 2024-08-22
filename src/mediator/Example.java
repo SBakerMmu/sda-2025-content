@@ -7,9 +7,8 @@ public final class Example {
         PricingMediator mediator = new PricingMediator();
 
         Basket basket = new Basket(mediator);
-        mediator.register(basket);
         Discounter discounter = new Discounter(mediator);
-        mediator.register(discounter);
+        mediator.registerColleagues(basket, discounter);
 
         Product a1 = new Product("A1", 50.0d);
         Product a2 = new Product("A2", 250.0d);

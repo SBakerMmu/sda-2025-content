@@ -1,0 +1,6 @@
+package generalMediator;
+
+interface Colleague {
+}
+
+

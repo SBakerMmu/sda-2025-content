@@ -1,4 +1,4 @@
-
+import mediator.Example;
 
 public class Main {
     public static void main(String[] args){
@@ -49,6 +49,8 @@ public class Main {
         generalFacade.Example.run();
 
         mediator.Example.run();
+
+        generalMediator.Example.run();
 
     }
 }
