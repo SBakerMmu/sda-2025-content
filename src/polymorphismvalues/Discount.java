@@ -1,21 +1,20 @@
-package simpleproduct;
+package polymorphismvalues;
 
 class Discount
 {
-    static final Discount NO_DISCOUNT = new Discount();
-    static final double MIN_DISCOUNT = 0.0d;
+    public static final Discount NO_DISCOUNT = new Discount();
+    private static final double NONE = 0.0d;
     private final double discount;
 
-    Discount()
+    private Discount()
     {
-
-        discount = 0.0d;
+        discount = NONE;
     }
 
     public Discount(double discount )
     {
         //do the preconditions
-        if(discount < MIN_DISCOUNT)
+        if(discount < NONE)
         {
             //throw an exception
         }
