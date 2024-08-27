@@ -55,5 +55,7 @@ public class Main {
 
         generalstate.Example.run();
 
+        orderstatemachine.Example.run();
+
     }
 }
