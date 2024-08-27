@@ -1,4 +1,3 @@
-import mediator.Example;
 
 public class Main {
     public static void main(String[] args){
@@ -47,6 +46,14 @@ public class Main {
         mediator.Example.run();
 
         generalMediator.Example.run();
+
+        rbgtatemachineswitch.Example.run();
+
+        rbgstatemachinestatepattern.Example.run();
+
+        extendedstatemachine.Example.run();
+
+        generalstate.Example.run();
 
     }
 }
