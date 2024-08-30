@@ -1,17 +1,80 @@
 package commandintroduction;
 
+import java.util.Stack;
+
 public final class Example {
 
     public static void run()
     {
-        MyClass anInstanceOfMyClass = new MyClass();
+        single();
+        history();
 
+
+    }
+
+    private static void composite() {
+        MyClass anInstanceOfMyClass = new MyClass();
+        Stack<Command> history = new Stack<>();
+
+        System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
+
+        Command add3 = new AddCommand(anInstanceOfMyClass, 3 );
+        add3.execute();
+        history.push(add3);
+        System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
+
+        Command add4 = new AddCommand(anInstanceOfMyClass, 4);
+        add4.execute();
+        history.push(add4);
+        System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
+
+        Command add5 = new AddCommand(anInstanceOfMyClass, 5);
+        add5.execute();
+        history.push(add5);
+        System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
+
+        while(!history.empty())
+        {
+            history.pop().undo();;
+            System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
+        }
+    }
+
+    private static void history() {
+        MyClass anInstanceOfMyClass = new MyClass();
+        Stack<Command> history = new Stack<>();
+
+        System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
+
+        Command add3 = new AddCommand(anInstanceOfMyClass, 3 );
+        add3.execute();
+        history.push(add3);
+        System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
+
+        Command add4 = new AddCommand(anInstanceOfMyClass, 4);
+        add4.execute();
+        history.push(add4);
+        System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
+
+        Command add5 = new AddCommand(anInstanceOfMyClass, 5);
+        add5.execute();
+        history.push(add5);
+        System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
+
+        while(!history.empty())
+        {
+            history.pop().undo();;
+            System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
+        }
+    }
+
+    private static void single() {
+        MyClass anInstanceOfMyClass = new MyClass();
         Command command = new AddCommand(anInstanceOfMyClass, 2);
         System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
         command.execute();
         System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
         command.undo();
         System.out.printf("value %d%n",anInstanceOfMyClass.getValue());
-
     }
 }

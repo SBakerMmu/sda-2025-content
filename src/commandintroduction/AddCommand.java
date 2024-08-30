@@ -2,22 +2,21 @@ package commandintroduction;
 
 class AddCommand implements Command {
 
-    private final MyClass instanceOfMyClass;
+    private final MyClass receiver;
     private final int i;
 
     AddCommand(MyClass instanceOfMyClass, int i) {
-        this.instanceOfMyClass = instanceOfMyClass;
+        this.receiver = instanceOfMyClass;
         this.i = i;
     }
 
     @Override
     public void execute() {
-        instanceOfMyClass.add(i);
+        receiver.add(i);
     }
 
     @Override
     public void undo() {
-        instanceOfMyClass.add(-i);
+        receiver.add(-i);
     }
-
 }

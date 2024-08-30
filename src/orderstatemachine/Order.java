@@ -2,65 +2,56 @@ package orderstatemachine;
 
 class Order {
 
-    private interface Context {
-        int getNumberOrderItems();
-
-        void changeState(State state);
-
-        EmailService getEmailService();
-
-        PaymentService getPaymentService();
-    }
-
     private interface State {
-        void paymentConfirmed(Context context);
+        void paymentConfirmed();
 
-        void customerCancelled(Context context);
+        void customerCancelled();
 
-        void warehouseCancelled(Context context);
+        void warehouseCancelled();
 
-        void itemPicked(Context context);
+        void itemPicked();
 
-        void orderPacked(Context context);
+        void orderPacked();
 
-        void courierPickup(Context context);
+        void courierPickup();
 
-        void customerReturn(Context context);
+        void customerReturn();
     }
+
 
     private abstract static class AbstractState implements State {
         @Override
-        public void paymentConfirmed(Context context) {
+        public void paymentConfirmed() {
             throw new IllegalStateException();
         }
 
         @Override
-        public void customerCancelled(Context context) {
+        public void customerCancelled() {
             throw new IllegalStateException();
         }
 
         @Override
-        public void warehouseCancelled(Context context) {
+        public void warehouseCancelled() {
             throw new IllegalStateException();
         }
 
         @Override
-        public void itemPicked(Context context) {
+        public void itemPicked() {
             throw new IllegalStateException();
         }
 
         @Override
-        public void orderPacked(Context context) {
+        public void orderPacked() {
             throw new IllegalStateException();
         }
 
         @Override
-        public void courierPickup(Context context) {
+        public void courierPickup() {
             throw new IllegalStateException();
         }
 
         @Override
-        public void customerReturn(Context context) {
+        public void customerReturn() {
             throw new IllegalStateException();
         }
     }
@@ -74,15 +65,15 @@ class Order {
 
 
         @Override
-        public void paymentConfirmed(Context context) {
-            context.getEmailService().sendOrderConfirmation(orderNumber);
-            context.changeState(new Paid());
+        public void paymentConfirmed() {
+            emailService.sendOrderConfirmation(orderNumber);
+            currentState = new Paid();
         }
 
         @Override
-        public void customerCancelled(Context context) {
-            context.getPaymentService().refundCustomer(orderNumber);
-            context.getEmailService().sendCustomerCancellationConfirmationEmail(orderNumber);
+        public void customerCancelled() {
+            paymentService.refundCustomer(orderNumber);
+            emailService.sendCustomerCancellationConfirmationEmail(orderNumber);
         }
 
     }
@@ -97,25 +88,26 @@ class Order {
         }
 
         @Override
-        public void itemPicked(Context context) {
+        public void itemPicked() {
             if (--itemsToPick == 0) {
-                context.changeState(new Picked());
+                currentState = new Picked();
             }
         }
 
         @Override
-        public void customerCancelled(Context context) {
+        public void customerCancelled() {
             itemsToPick = orderItems;
-            context.getPaymentService().refundCustomer(orderNumber);
-            context.getEmailService().sendCustomerCancellationConfirmationEmail(orderNumber);
-            context.changeState(new Cancelled());
+            paymentService.refundCustomer(orderNumber);
+            emailService.sendCustomerCancellationConfirmationEmail(orderNumber);
+            currentState = new Cancelled();
         }
 
         @Override
-        public void warehouseCancelled(Context context) {
+        public void warehouseCancelled() {
             itemsToPick = orderItems;
-            context.getEmailService().sendWarehouseCancellationApologyEmail(orderNumber);
-            context.changeState(new Cancelled());
+            paymentService.refundCustomer(orderNumber);
+            emailService.sendWarehouseCancellationApologyEmail(orderNumber);
+            currentState = new Cancelled();
         }
     }
 
@@ -127,18 +119,17 @@ class Order {
         }
 
         @Override
-        public void orderPacked(Context context) {
-            context.getEmailService().notifyCourier(orderNumber);
-            context.changeState(new Packed());
+        public void orderPacked() {
+            emailService.notifyCourier(orderNumber);
+            currentState = new Packed();
         }
 
         @Override
-        public void warehouseCancelled(Context context) {
-            context.getPaymentService().refundCustomer(orderNumber);
-            context.getEmailService().sendWarehouseCancellationApologyEmail(orderNumber);
-            context.changeState(new Cancelled());
+        public void warehouseCancelled() {
+            paymentService.refundCustomer(orderNumber);
+            emailService.sendWarehouseCancellationApologyEmail(orderNumber);
+            currentState = new Cancelled();
         }
-
     }
 
     private class Packed extends AbstractState {
@@ -149,13 +140,12 @@ class Order {
         }
 
         @Override
-        public void courierPickup(Context context) {
-            context.getEmailService().sendDispatchConfirmationEmail(orderNumber);
-            context.changeState(new Dispatched());
+        public void courierPickup() {
+            emailService.sendDispatchConfirmationEmail(orderNumber);
+            currentState = new Dispatched();
         }
 
     }
-
 
     private class Dispatched extends AbstractState {
 
@@ -165,10 +155,10 @@ class Order {
         }
 
         @Override
-        public void customerReturn(Context context) {
-            context.getPaymentService().refundCustomer(orderNumber);
-            context.getEmailService().sendReturnConfirmationEmail(orderNumber);
-            context.changeState(new Returned());
+        public void customerReturn() {
+            paymentService.refundCustomer(orderNumber);
+            emailService.sendReturnConfirmationEmail(orderNumber);
+            currentState = new Returned();
         }
     }
 
@@ -192,68 +182,12 @@ class Order {
         //There are no legal transitions from Cancelled state, it is the final state
     }
 
-    private class StateMachine implements Context {
-        private State currentState = new Received();
-
-        @Override
-        public int getNumberOrderItems() {
-            return orderItems;
-        }
-
-        @Override
-        public void changeState(State state) {
-            currentState = state;
-        }
-
-        @Override
-        public EmailService getEmailService() {
-            return emailService;
-        }
-
-        @Override
-        public PaymentService getPaymentService() {
-            return paymentService;
-        }
-
-
-        String getCurrentState() {
-            return currentState.toString();
-        }
-
-        void paymentConfirmed() {
-            currentState.paymentConfirmed(this);
-        }
-
-        void customerCancelled() {
-            currentState.customerCancelled(this);
-        }
-
-        void warehouseCancelled() {
-            currentState.warehouseCancelled(this);
-        }
-
-        void itemPicked() {
-            currentState.itemPicked(this);
-        }
-
-        void orderPacked() {
-            currentState.orderPacked(this);
-        }
-
-        void courierPickup() {
-            currentState.courierPickup(this);
-        }
-
-        void customerReturn() {
-            currentState.customerReturn(this);
-        }
-    }
 
     private final String orderNumber;
     private final int orderItems;
     private final EmailService emailService;
     private final PaymentService paymentService;
-    private final StateMachine stateMachine = new StateMachine();
+    private State currentState = new Received();
 
     Order(String orderNumber, int orderItems, EmailService emailService, PaymentService paymentService) {
         this.orderNumber = orderNumber;
@@ -263,34 +197,34 @@ class Order {
     }
 
     void paymentConfirmed() {
-        stateMachine.paymentConfirmed();
+        currentState.paymentConfirmed();
     }
 
     void customerCancelled() {
-        stateMachine.customerCancelled();
+        currentState.customerCancelled();
     }
 
     void warehouseCancelled() {
-        stateMachine.warehouseCancelled();
+        currentState.warehouseCancelled();
     }
 
     void itemPicked() {
-        stateMachine.itemPicked();
+        currentState.itemPicked();
     }
 
     void orderPacked() {
-        stateMachine.orderPacked();
+        currentState.orderPacked();
     }
 
     void courierPickup() {
-        stateMachine.courierPickup();
+        currentState.courierPickup();
     }
 
     void customerReturn() {
-        stateMachine.customerReturn();
+        currentState.customerReturn();
     }
 
     public String getCurrentState() {
-        return String.format("%s %s", orderNumber, stateMachine.getCurrentState());
+        return String.format("%s %s", orderNumber, currentState);
     }
 }
