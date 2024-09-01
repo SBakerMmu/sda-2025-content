@@ -1,14 +1,13 @@
-﻿package commandintroduction;
+package commandintroduction;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class CompositeCommand implements Command{
+class CompositeCommand implements Command {
 
-    List<Command> commands = new ArrayList<>();
+    private final List<Command> commands = new ArrayList<>();
 
-    public void add(Command command)
-    {
+    void add(Command command) {
         commands.add(command);
     }
 

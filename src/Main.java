@@ -58,5 +58,7 @@ public class Main {
         orderstatemachine.Example.run();
 
         commandintroduction.Example.run();
+
+        compositemenu.Example.run();
     }
 }
