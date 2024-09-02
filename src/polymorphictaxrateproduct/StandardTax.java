@@ -1,9 +1,9 @@
 package polymorphictaxrateproduct;
 
 class StandardTax implements TaxCalculation {
-    static final double STANDARD_RATE = 0.2d;
-    static final int ROUNDING_DECIMALS = 2;
-    static final double ROUNDING_SCALE = Math.pow(10, ROUNDING_DECIMALS);
+    private static final double STANDARD_RATE = 0.2d;
+    private static final int ROUNDING_DECIMALS = 2;
+    private static final double ROUNDING_SCALE = Math.pow(10, ROUNDING_DECIMALS);
 
     @Override
     public Tax get(Price price) {
