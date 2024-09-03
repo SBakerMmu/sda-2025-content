@@ -1,8 +1,8 @@
-package chainOfResponsiblity;
+package chainofresponsiblity;
 
 class DefaultHandler implements SearchHandler{
     @Override
-    public boolean hasReference(String oid) {
+    public boolean hasDigitalObject(String doi) {
         return false;
     }
 }

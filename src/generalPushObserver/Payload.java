@@ -1,0 +1,4 @@
+package generalPushObserver;
+
+class Payload {
+}

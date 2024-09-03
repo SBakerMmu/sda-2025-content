@@ -19,7 +19,7 @@ public class Main {
 
         generalDecorator.Example.run();
 
-        chainOfResponsiblity.Example.run();
+        chainofresponsiblity.Example.run();
 
         generalChainOfResponsiblity.Example.run();
 

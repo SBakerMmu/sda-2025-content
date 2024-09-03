@@ -1,11 +1,11 @@
-package chainOfResponsiblity;
+package chainofresponsiblity;
 
 public final class Example {
 
     public static void run()
     {
         SearchHandler handler = new DatabaseHandler(new DefaultHandler());
-        handler.hasReference("ABC123");
+        handler.hasDigitalObject("10.1000/182");
     }
 
 }

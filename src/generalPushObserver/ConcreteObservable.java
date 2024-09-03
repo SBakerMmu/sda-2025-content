@@ -17,8 +17,9 @@ class ConcreteObservable implements Observable {
     }
 
     public void update() {
+        Payload payload = new Payload();
         for (Observer observer : observers) {
-            observer.update(this);
+            observer.update(payload);
         }
     }
 }
