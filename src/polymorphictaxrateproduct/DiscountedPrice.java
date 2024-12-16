@@ -1,11 +1,18 @@
 package polymorphictaxrateproduct;
 
+import java.util.Objects;
+
 class DiscountedPrice implements SellingPrice {
 
+    final static DiscountedPrice ZERO = new DiscountedPrice();
     private final FullPrice fullPrice;
     private final MinimumPrice minimumPrice;
     private final Discount discount;
     private final Price sellingPrice;
+
+    public DiscountedPrice() {
+        this(FullPrice.ZERO, MinimumPrice.ZERO, Discount.NO_DISCOUNT);
+    }
 
     public DiscountedPrice(FullPrice fullPrice, MinimumPrice minimum, Discount discount) {
         this.fullPrice = fullPrice;
@@ -13,6 +20,18 @@ class DiscountedPrice implements SellingPrice {
         this.discount = discount;
         this.sellingPrice = calculatePrice();
         checkInvariants();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof SellingPrice other) {
+            return get().equals(other.get());
+        } else return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(sellingPrice);
     }
 
     @Override
@@ -37,6 +56,16 @@ class DiscountedPrice implements SellingPrice {
 
         return discount.applyTo(fullPrice.get());
 
+    }
+
+    @Override
+    public String toString() {
+        return "DiscountedPrice{" +
+                "fullPrice=" + fullPrice +
+                ", minimumPrice=" + minimumPrice +
+                ", discount=" + discount +
+                ", sellingPrice=" + sellingPrice +
+                '}';
     }
 
     public Price get() {

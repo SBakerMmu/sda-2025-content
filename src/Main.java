@@ -9,6 +9,8 @@ public class Main {
 
         polymorphicsellingpriceproduct.Example.run();
 
+        polymorphictaxrateproduct.Example.run();
+
         globaltradeitemnumber.Example.run();
 
         bridgeproduct.Example.run();
