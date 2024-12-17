@@ -1,6 +1,6 @@
 package generalDecorator;
 
-class ConcreteDecorator implements Component{
+class ConcreteDecorator implements Component {
     private final Component component;
 
     public ConcreteDecorator(Component component) {

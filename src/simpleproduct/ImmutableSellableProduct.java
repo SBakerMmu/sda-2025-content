@@ -10,8 +10,8 @@ class ImmutableSellableProduct {
     public ImmutableSellableProduct(SellingPrice price) {
         this.price = price;
     }
-    public double getPrice()
-    {
+
+    public double getPrice() {
         return price.get();
     }
 }

@@ -1,14 +1,12 @@
 package demeterexample;
 
-class Product
-{
+class Product {
     private final String code;
     private final String name;
     private final String description;
     private final Category category;
 
-    Product(String code, String name, String description, Category category)
-    {
+    Product(String code, String name, String description, Category category) {
         this.code = code;
         this.name = name;
         this.description = description;

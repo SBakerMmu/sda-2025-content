@@ -8,8 +8,8 @@ class Context {
         this.strategy = strategy;
     }
 
-    public void operation()
-    {
-        strategy.algorithm();;
+    public void operation() {
+        strategy.algorithm();
+        ;
     }
 }

@@ -2,8 +2,7 @@ package facade;
 
 public final class Example {
 
-    public static void run()
-    {
+    public static void run() {
         Facade facade = new Facade();
 
         Product a1 = new Product("A1", 50.0d);

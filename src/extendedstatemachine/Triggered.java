@@ -13,8 +13,7 @@ class Triggered implements State {
     }
 
     @Override
-    public void reset(Context context)
-    {
+    public void reset(Context context) {
         State next = new Countdown();
         System.out.printf("reset %s -> %s%n", this, next);
         context.changeState(next);

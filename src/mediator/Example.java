@@ -2,8 +2,7 @@ package mediator;
 
 public final class Example {
 
-    public static void run()
-    {
+    public static void run() {
         PricingMediator mediator = new PricingMediator();
 
         Basket basket = new Basket(mediator);

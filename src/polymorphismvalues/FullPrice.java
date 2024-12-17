@@ -3,8 +3,14 @@ package polymorphismvalues;
 import java.util.Objects;
 
 class FullPrice {
+    public static final FullPrice ZERO = new FullPrice();
+
     private static final double NONE = 0.0d;
     final private double price;
+
+    private FullPrice() {
+        this(NONE);
+    }
 
     public FullPrice(double price) {
         if (price < NONE) {

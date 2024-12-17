@@ -2,8 +2,8 @@ package singleClassDesign02PrePostCondition;
 
 class Product {
 
-    private double discount;
     private final double fullPrice;
+    private double discount;
 
     public Product(double fullPrice) {
 
@@ -12,13 +12,11 @@ class Product {
 
     public void setDiscount(double discount) {
         //check pre-conditions
-        if(discount < 0d)
-        {
+        if (discount < 0d) {
             //throw an exception
         }
 
-        if(discount > fullPrice)
-        {
+        if (discount > fullPrice) {
             //throw an exception
         }
 
@@ -27,19 +25,16 @@ class Product {
     }
 
 
-    public void setDiscountPercent(int discountPercent)
-    {
+    public void setDiscountPercent(int discountPercent) {
         //the operation converts from a percent to a multiplier
-        double discount = fullPrice * (double)discountPercent/100d;
+        double discount = fullPrice * (double) discountPercent / 100d;
 
         //check the postcondition
-        if(discount < 0d)
-        {
+        if (discount < 0d) {
             //throw an exception
         }
 
-        if(discount > fullPrice)
-        {
+        if (discount > fullPrice) {
             //throw an exception
         }
         //it is safe to update the state of object

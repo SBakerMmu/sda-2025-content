@@ -2,8 +2,7 @@ package javarecapsubtypes;
 
 public final class Example {
 
-    public static void run()
-    {
+    public static void run() {
         //Operations available to the variable of type MyInterface are just interfaceMethodA()
         MyInterface myInterface = new E();
         myInterface.interfaceMethodA();
@@ -18,7 +17,6 @@ public final class Example {
         e.interfaceMethodA();
         e.methodA();
         e.methodB();
-
 
 
     }

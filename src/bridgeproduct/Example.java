@@ -33,8 +33,7 @@ public final class Example {
 
             double pounds = PriceUtility.getPounds(product.getPrice());
             double pence = PriceUtility.getPence(product.getPrice());
-        } catch ( InvalidException ex)
-        {
+        } catch (InvalidException ex) {
             System.out.format("%s/n", ex);
         }
     }

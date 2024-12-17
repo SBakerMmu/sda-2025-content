@@ -1,6 +1,6 @@
 package polymorphictaxrateproduct;
 
 interface TaxCalculation {
-    Tax get(Price price);
+    double get(double price);
 }
 

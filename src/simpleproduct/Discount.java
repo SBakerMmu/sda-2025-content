@@ -1,29 +1,24 @@
 package simpleproduct;
 
-class Discount
-{
+class Discount {
     static final Discount NO_DISCOUNT = new Discount();
     static final double MIN_DISCOUNT = 0.0d;
     private final double discount;
 
-    Discount()
-    {
+    Discount() {
 
         discount = 0.0d;
     }
 
-    public Discount(double discount )
-    {
+    public Discount(double discount) {
         //do the preconditions
-        if(discount < MIN_DISCOUNT)
-        {
+        if (discount < MIN_DISCOUNT) {
             //throw an exception
         }
         this.discount = discount;
     }
 
-    public double get()
-    {
+    public double get() {
         return discount;
     }
 }

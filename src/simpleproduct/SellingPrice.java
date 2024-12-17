@@ -20,25 +20,21 @@ class SellingPrice extends Price {
         checkInvariants();
     }
 
-    public SellingPrice applyDiscount(Discount newDiscount)
-    {
+    public SellingPrice applyDiscount(Discount newDiscount) {
         return new SellingPrice(this.fullPrice, newDiscount, this);
     }
 
-    void checkInvariants()
-    {
-        if(get() < MIN_SELLING_PRICE)
-        {
+    void checkInvariants() {
+        if (get() < MIN_SELLING_PRICE) {
             //throw execption
         }
     }
-    public double get()
-    {
+
+    public double get() {
         return fullPrice.get() - (fullPrice.get() * discount.get());
     }
 
-    public Price getPreviousSellingPrice()
-    {
+    public Price getPreviousSellingPrice() {
         return previousSellingPrice;
     }
 }

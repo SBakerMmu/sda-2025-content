@@ -2,21 +2,18 @@ package polymorphicsellingpriceproduct;
 
 import java.util.Objects;
 
-class Discount
-{
+class Discount {
+    public static final Discount NO_DISCOUNT = new Discount();
     private static final double NONE = 0.0d;
     private final double discount;
 
-    private Discount()
-    {
-        discount = NONE;
+    private Discount() {
+        this(NONE);
     }
 
-    Discount(double discount )
-    {
+    public Discount(double discount) {
         //do the preconditions
-        if(discount < NONE)
-        {
+        if (discount < NONE) {
             //throw an exception
         }
         this.discount = discount;
@@ -41,9 +38,7 @@ class Discount
                 '}';
     }
 
-    public double get()
-    {
+    public double get() {
         return discount;
     }
-
 }

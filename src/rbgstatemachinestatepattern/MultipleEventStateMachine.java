@@ -3,14 +3,12 @@ package rbgstatemachinestatepattern;
 class MultipleEventStateMachine implements Context {
     private State currentState;
 
-    MultipleEventStateMachine()
-    {
+    MultipleEventStateMachine() {
         currentState = new Red(); //initial state
     }
 
     @Override
-    public void changeState(State nextState)
-    {
+    public void changeState(State nextState) {
         currentState = nextState;
     }
 

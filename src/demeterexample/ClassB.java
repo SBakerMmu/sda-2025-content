@@ -4,13 +4,11 @@ public class ClassB {
 
     private final ClassC c = new ClassC();
 
-    ClassC getC()
-    {
+    ClassC getC() {
         return new ClassC();
     }
 
-    void doZ()
-    {
+    void doZ() {
         c.doZ();
     }
 }

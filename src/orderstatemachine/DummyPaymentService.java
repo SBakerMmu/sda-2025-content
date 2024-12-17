@@ -1,6 +1,6 @@
 package orderstatemachine;
 
-class DummyPaymentService implements PaymentService{
+class DummyPaymentService implements PaymentService {
 
     @Override
     public void refundCustomer(String orderNumber) {

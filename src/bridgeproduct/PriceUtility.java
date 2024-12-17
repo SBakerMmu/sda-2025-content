@@ -4,17 +4,14 @@ final class PriceUtility {
 
 
     //Price constructor
-    private PriceUtility()
-    {
+    private PriceUtility() {
     }
 
-    public static double getPounds(Price price)
-    {
+    public static double getPounds(Price price) {
         return Math.floor(price.get());
     }
 
-    public static double getPence(Price price)
-    {
-        return  price.get() - PriceUtility.getPounds(price);
+    public static double getPence(Price price) {
+        return price.get() - PriceUtility.getPounds(price);
     }
 }

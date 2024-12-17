@@ -3,11 +3,21 @@ package polymorphismvalues;
 import java.util.Objects;
 
 class DiscountedPrice {
+    public static final DiscountedPrice ZERO = new DiscountedPrice();
+
     private final double price;
 
+    private DiscountedPrice() {
+        this(FullPrice.ZERO, MinimumPrice.NO_MINIMUM, Discount.NO_DISCOUNT);
+    }
+
     public DiscountedPrice(FullPrice fullPrice, MinimumPrice minimum, Discount discount) {
-        this.price = fullPrice.get() - discount.get();
-        if (price < minimum.get()) {
+        this(fullPrice.get(), minimum.get(), discount.get());
+    }
+
+    private DiscountedPrice(double fullPrice, double minimum, double discount) {
+        this.price = fullPrice - discount;
+        if (price < minimum) {
             //throw exception
         }
     }

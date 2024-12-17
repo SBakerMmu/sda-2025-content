@@ -1,36 +1,62 @@
 package polymorphicsellingpriceproduct;
 
+import java.util.Objects;
+
 class DiscountedPrice implements SellingPrice {
 
-    private final Price fullPrice;
-    private final Price sellingPrice;
+    public final static DiscountedPrice ZERO = new DiscountedPrice();
+    private final FullPrice fullPrice;
+    private final Discount discount;
+    private final double price;
 
-    public DiscountedPrice(FullPrice fullPrice, MinimumPrice minimum, Discount discount) {
-        this(fullPrice.get(), minimum, discount);
+    private DiscountedPrice() {
+        this(FullPrice.ZERO, MinimumPrice.NO_MINIMUM, Discount.NO_DISCOUNT);
     }
 
-    private  DiscountedPrice(Price fullPrice, MinimumPrice minimum, Discount discount) {
+    public DiscountedPrice(FullPrice fullPrice, MinimumPrice minimum, Discount discount) {
         this.fullPrice = fullPrice;
-        double price = fullPrice.get() - discount.get();
+        this.discount = discount;
+        this.price = fullPrice.get() - discount.get();
+        //check invariant
         if (price < minimum.get()) {
             //throw exception
         }
-
-        sellingPrice = new Price(price);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof SellingPrice other) {
+            return price == other.get();
+        } else return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(price);
+    }
 
     @Override
     public SellingPrice applyDiscount(MinimumPrice minimum, Discount discount) {
-        return new DiscountedPrice(new FullPrice(this.fullPrice), minimum, discount);
+        return new DiscountedPrice(this.fullPrice, minimum, discount);
     }
 
     @Override
     public SellingPrice removeDiscount() {
-        return new FullPrice(this.fullPrice);
+        return fullPrice;
     }
 
-    public Price get() {
-        return sellingPrice;
+    @Override
+    public String toString() {
+        return "DiscountedPrice{" +
+                "fullPrice=" + fullPrice +
+                ", discount=" + discount +
+                ", sellingPrice=" + price +
+                '}';
     }
+
+    @Override
+    public double get() {
+        return price;
+    }
+
 }

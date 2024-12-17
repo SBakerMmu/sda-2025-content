@@ -1,7 +1,5 @@
 package compositemenu;
 
-import java.util.Objects;
-
 class LeafMenuItem extends AbstractMenuItem {
     private final Command command;
 

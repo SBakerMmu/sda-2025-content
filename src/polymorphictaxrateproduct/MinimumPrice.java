@@ -2,22 +2,21 @@ package polymorphictaxrateproduct;
 
 import java.util.Objects;
 
-class MinimumPrice
-{
-    public static final MinimumPrice ZERO = new MinimumPrice(MinimumPrice.NO_PRICE);
-    static final double NO_PRICE = 0.0d;
+class MinimumPrice {
+    public static final MinimumPrice NO_MINIMUM = new MinimumPrice();
+    static final double NONE = 0.0d;
     final private double price;
 
-    public MinimumPrice(double price)
-    {
-        //do the preconditions
-        if(price <= NO_PRICE)
-        {
+    private MinimumPrice() {
+        this(NONE);
+    }
 
+    public MinimumPrice(double price) {
+        //do the preconditions
+        if (price < NONE) {
             //throw exception
         }
         this.price = price;
-
     }
 
     @Override
@@ -39,9 +38,7 @@ class MinimumPrice
                 '}';
     }
 
-    public double get()
-    {
+    public double get() {
         return price;
     }
-
 }

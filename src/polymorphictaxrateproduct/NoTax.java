@@ -1,9 +1,10 @@
 package polymorphictaxrateproduct;
 
 class NoTax implements TaxCalculation {
+    static final double NONE = 0.0d;
 
     @Override
-    public Tax get(Price price) {
-        return Tax.ZERO;
+    public double get(double price) {
+        return NONE;
     }
 }

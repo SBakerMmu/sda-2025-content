@@ -2,8 +2,7 @@ package generalChainOfResponsiblity;
 
 public final class Example {
 
-    public static void run()
-    {
+    public static void run() {
         Handler handler = new ConcreteHandler(new DefaultHandler());
         handler.operation();
     }

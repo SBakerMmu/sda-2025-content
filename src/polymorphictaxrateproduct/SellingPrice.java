@@ -1,7 +1,7 @@
 package polymorphictaxrateproduct;
 
 interface SellingPrice {
-    Price get();
+    double get();
 
     SellingPrice applyDiscount(MinimumPrice minimum, Discount discount);
 

@@ -3,7 +3,7 @@ package facade;
 import java.util.ArrayList;
 import java.util.List;
 
-class Basket{
+class Basket {
 
     private final List<Product> products = new ArrayList<>();
     double discount = 0;

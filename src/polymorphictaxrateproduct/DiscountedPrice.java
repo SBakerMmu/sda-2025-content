@@ -1,75 +1,63 @@
 package polymorphictaxrateproduct;
 
+
 import java.util.Objects;
 
 class DiscountedPrice implements SellingPrice {
 
-    final static DiscountedPrice ZERO = new DiscountedPrice();
+    public final static DiscountedPrice ZERO = new DiscountedPrice();
     private final FullPrice fullPrice;
-    private final MinimumPrice minimumPrice;
     private final Discount discount;
-    private final Price sellingPrice;
+    private final double price;
 
-    public DiscountedPrice() {
-        this(FullPrice.ZERO, MinimumPrice.ZERO, Discount.NO_DISCOUNT);
+    private DiscountedPrice() {
+        this(FullPrice.ZERO, MinimumPrice.NO_MINIMUM, Discount.NO_DISCOUNT);
     }
 
     public DiscountedPrice(FullPrice fullPrice, MinimumPrice minimum, Discount discount) {
         this.fullPrice = fullPrice;
-        this.minimumPrice = minimum;
         this.discount = discount;
-        this.sellingPrice = calculatePrice();
-        checkInvariants();
+        this.price = fullPrice.get() - discount.get();
+        //check invariant
+        if (price < minimum.get()) {
+            //throw exception
+        }
     }
 
     @Override
     public boolean equals(Object o) {
         if (o instanceof SellingPrice other) {
-            return get().equals(other.get());
+            return price == other.get();
         } else return false;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(sellingPrice);
+        return Objects.hashCode(price);
     }
 
     @Override
     public SellingPrice applyDiscount(MinimumPrice minimum, Discount discount) {
-        return new DiscountedPrice(this.fullPrice, minimum, this.discount.add(discount));
+        return new DiscountedPrice(this.fullPrice, minimum, discount);
     }
 
     @Override
     public SellingPrice removeDiscount() {
-
         return fullPrice;
-    }
-
-
-    void checkInvariants() {
-        if (sellingPrice.get() < minimumPrice.get()) {
-            //throw exception
-        }
-    }
-
-    Price calculatePrice() {
-
-        return discount.applyTo(fullPrice.get());
-
     }
 
     @Override
     public String toString() {
         return "DiscountedPrice{" +
                 "fullPrice=" + fullPrice +
-                ", minimumPrice=" + minimumPrice +
                 ", discount=" + discount +
-                ", sellingPrice=" + sellingPrice +
+                ", sellingPrice=" + price +
                 '}';
     }
 
-    public Price get() {
-        return sellingPrice;
+    public double get() {
+        return price;
     }
 
 }
+

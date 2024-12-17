@@ -10,8 +10,7 @@ public final class ItemReference {
     private final int value;
 
     public ItemReference(int value) throws InvalidNumberRangeException {
-        if(value < MIN || value > MAX)
-        {
+        if (value < MIN || value > MAX) {
             throw new InvalidNumberRangeException(value, MIN, MAX);
         }
         this.value = value;
@@ -39,8 +38,7 @@ public final class ItemReference {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         //pad out with 0s when converting to string
         return String.format("%06d", value);
     }

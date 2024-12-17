@@ -1,6 +1,5 @@
-
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
 
         javarecapsubtypes.Example.run();
@@ -12,6 +11,8 @@ public class Main {
         polymorphictaxrateproduct.Example.run();
 
         globaltradeitemnumber.Example.run();
+
+        shippingstrategy.Example.run();
 
         bridgeproduct.Example.run();
 

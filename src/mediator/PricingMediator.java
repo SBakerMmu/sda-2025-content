@@ -4,8 +4,7 @@ class PricingMediator implements Mediator {
     private Basket basket;
     private Discounter discounter;
 
-    public void registerColleagues(Basket basket, Discounter discounter)
-    {
+    public void registerColleagues(Basket basket, Discounter discounter) {
         this.basket = basket;
         this.discounter = discounter;
     }
@@ -13,12 +12,10 @@ class PricingMediator implements Mediator {
     @Override
     public void onChanged(Colleague colleague) {
 
-        if(colleague == basket)
-        {
+        if (colleague == basket) {
             discounter.setTotal(basket.getTotal());
         }
-        if(colleague == discounter)
-        {
+        if (colleague == discounter) {
             basket.setDiscount(discounter.getDiscount());
         }
     }

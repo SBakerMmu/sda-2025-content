@@ -8,12 +8,14 @@ public final class Example {
         System.out.format("Zero discounted price %s%n", DiscountedPrice.ZERO);
 
         FullPrice fullPrice = new FullPrice(100.0d);
-        DiscountedPrice discountPrice = new DiscountedPrice(new FullPrice(125.0d), MinimumPrice.ZERO, new Discount(0.2d) );
+        DiscountedPrice discountPrice = new DiscountedPrice(new FullPrice(125.0d), MinimumPrice.NO_MINIMUM, new Discount(25d));
         System.out.format("full price = discount price %s%n", fullPrice.equals(discountPrice));
+
+
         MinimumPrice minimumPrice = new MinimumPrice(75.0d);
         TaxCalculation standardTax = new StandardTax();
         Product product = new Product(fullPrice, minimumPrice, standardTax);
-        Price price = product.getPrice();
+        System.out.format("%s%n", product.getPrice());
     }
 
 }

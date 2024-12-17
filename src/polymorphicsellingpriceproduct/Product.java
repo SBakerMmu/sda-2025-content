@@ -2,8 +2,8 @@ package polymorphicsellingpriceproduct;
 
 class Product {
 
-    private SellingPrice sellingPrice;
     private final MinimumPrice minimumPrice;
+    private SellingPrice sellingPrice;
 
     public Product(FullPrice price, MinimumPrice minimumPrice) {
         this.sellingPrice = price;
@@ -20,8 +20,7 @@ class Product {
         sellingPrice = sellingPrice.removeDiscount();
     }
 
-    public Price getPrice() {
-
+    public double getPrice() {
         return sellingPrice.get();
     }
 }

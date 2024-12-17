@@ -17,20 +17,17 @@ class ImmutableProduct {
         checkInvariants();
     }
 
-    void checkInvariants()
-    {
-        if(getSellingPrice() < MIN_SELLING_PRICE)
-        {
+    void checkInvariants() {
+        if (getSellingPrice() < MIN_SELLING_PRICE) {
             //throw execption
         }
     }
-    public ImmutableProduct setDiscount(double discount)
-    {
+
+    public ImmutableProduct setDiscount(double discount) {
         return new ImmutableProduct(this.price, discount);
     }
 
-    public double getSellingPrice()
-    {
+    public double getSellingPrice() {
         return price - (price * discount);
     }
 }

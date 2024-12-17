@@ -2,9 +2,9 @@ package polymorphictaxrateproduct;
 
 class Product {
 
-    private SellingPrice sellingPrice;
     private final MinimumPrice minimumPrice;
     private final TaxCalculation taxCalculation;
+    private SellingPrice sellingPrice;
 
     public Product(FullPrice price, MinimumPrice minimumPrice, TaxCalculation taxCalculation) {
         this.sellingPrice = price;
@@ -22,9 +22,9 @@ class Product {
         sellingPrice = sellingPrice.removeDiscount();
     }
 
-    public Price getPrice() {
-        Price sellingPriceExcludingTax = sellingPrice.get();
-        Tax tax = taxCalculation.get(sellingPriceExcludingTax);
-        return new Price(sellingPriceExcludingTax.get() + tax.get());
+    public ProductPrice getPrice() {
+        double sellingPriceExcludingTax = sellingPrice.get();
+        double tax = taxCalculation.get(sellingPriceExcludingTax);
+        return new ProductPrice(sellingPriceExcludingTax, tax);
     }
 }

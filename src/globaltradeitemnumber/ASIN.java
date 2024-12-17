@@ -6,6 +6,20 @@ public final class ASIN {
     public static final int LENGTH = 10;
     private final String id;
 
+    public ASIN(String id) throws InvalidException {
+
+        if (!isValidLength(id)) {
+            throw new InvalidLengthException(id, LENGTH);
+        }
+
+        if (!isValidCharacters(id)) {
+            throw new InvalidCharacterException(id);
+        }
+
+
+        this.id = id;
+    }
+
     static boolean isValid(String s) {
         return isValidLength(s) && isValidCharacters(s);
     }
@@ -24,21 +38,6 @@ public final class ASIN {
 
     public static ASIN parse(String id) throws InvalidException {
         return new ASIN(id);
-    }
-
-
-    public ASIN(String id) throws InvalidException {
-
-        if (!isValidLength(id)) {
-            throw new InvalidLengthException(id, LENGTH);
-        }
-
-        if (!isValidCharacters(id)) {
-            throw new InvalidCharacterException(id);
-        }
-
-
-        this.id = id;
     }
 
     @Override

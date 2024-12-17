@@ -1,15 +1,12 @@
 package simpleproduct;
 
-class FullPrice extends Price
-{
+class FullPrice extends Price {
     static final double MIN_PRICE = 0.0d;
     final private double price;
 
-    public FullPrice(double price)
-    {
+    public FullPrice(double price) {
         //do the preconditions
-        if(price <= MIN_PRICE)
-        {
+        if (price <= MIN_PRICE) {
 
             //throw execption
         }
@@ -17,8 +14,7 @@ class FullPrice extends Price
 
     }
 
-    public double get()
-    {
+    public double get() {
         return price;
     }
 }

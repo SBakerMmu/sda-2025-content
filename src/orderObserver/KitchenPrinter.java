@@ -3,6 +3,10 @@ package orderObserver;
 import java.util.List;
 
 class KitchenPrinter implements OrderObserver {
+    static List<String> getDescriptions(Order order) {
+        return order.getItems().stream().map(Pizza::getDescription).toList();
+    }
+
     @Override
     public void orderTaken(Order order) {
         int lineNumber = 1;
@@ -11,9 +15,5 @@ class KitchenPrinter implements OrderObserver {
             System.out.format("%d. %s\n", lineNumber++, line);
         }
         System.out.format("==============\n");
-    }
-
-    static List<String> getDescriptions(Order order) {
-        return order.getItems().stream().map(Pizza::getDescription).toList();
     }
 }

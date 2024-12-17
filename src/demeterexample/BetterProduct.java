@@ -1,14 +1,12 @@
 package demeterexample;
 
-class BetterProduct
-{
+class BetterProduct {
     private final String code;
     private final String name;
     private final String description;
     private final BetterCategory category;
 
-    BetterProduct(String code, String name, String description, BetterCategory category)
-    {
+    BetterProduct(String code, String name, String description, BetterCategory category) {
         this.code = code;
         this.name = name;
         this.description = description;
@@ -27,19 +25,19 @@ class BetterProduct
         return description;
     }
 
-    String  getCategoryCode() {
+    String getCategoryCode() {
         return category.getCode();
     }
 
-    String  getCategoryName() {
+    String getCategoryName() {
         return category.getName();
     }
 
-    String  getDepartmentCode () {
+    String getDepartmentCode() {
         return category.getDepartmentCode();
     }
 
-    String  getDepartmentName () {
+    String getDepartmentName() {
         return category.getDepartmentName();
     }
 }

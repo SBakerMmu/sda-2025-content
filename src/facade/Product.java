@@ -3,7 +3,7 @@ package facade;
 class Product {
 
     private final String code;
-    private final double  price;
+    private final double price;
 
     Product(String code, double price) {
         this.code = code;

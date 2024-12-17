@@ -1,6 +1,6 @@
 package orderstatemachine;
 
-class DummyEmailService implements EmailService{
+class DummyEmailService implements EmailService {
     @Override
     public void sendOrderConfirmation(String orderNumber) {
         System.out.printf("Email: Thank you for your order number %s.%n", orderNumber);

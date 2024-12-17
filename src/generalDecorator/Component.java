@@ -1,6 +1,6 @@
 package generalDecorator;
 
- interface Component {
-     void operation();
+interface Component {
+    void operation();
 }
 

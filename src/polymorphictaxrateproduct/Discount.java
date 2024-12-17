@@ -3,18 +3,17 @@ package polymorphictaxrateproduct;
 import java.util.Objects;
 
 class Discount {
-    static final Discount NO_DISCOUNT = new Discount();
-    static final double MIN_DISCOUNT = 0.0d;
-    static final double MAX_DISCOUNT = 1.0d;
+    public static final Discount NO_DISCOUNT = new Discount();
+    private static final double NONE = 0.0d;
     private final double discount;
 
-    Discount() {
-        this(MIN_DISCOUNT);
+    private Discount() {
+        this(NONE);
     }
 
     public Discount(double discount) {
         //do the preconditions
-        if (discount < MIN_DISCOUNT || discount > MAX_DISCOUNT) {
+        if (discount < NONE) {
             //throw an exception
         }
         this.discount = discount;
@@ -41,17 +40,5 @@ class Discount {
 
     public double get() {
         return discount;
-    }
-
-    public Discount add(Discount discount) {
-        return new Discount(this.discount + discount.get());
-    }
-
-    double applyTo(double value) {
-        return value - (value * discount);
-    }
-
-    Price applyTo(Price value) {
-        return new Price(applyTo(value.get()));
     }
 }

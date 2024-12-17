@@ -1,8 +1,5 @@
 package generalMediator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 class ConcreteMediator implements Mediator {
 
     private ConcreteColleague1 colleague1;

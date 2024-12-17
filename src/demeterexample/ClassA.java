@@ -4,8 +4,7 @@ class ClassA {
 
     private final ClassB b = new ClassB();
 
-    public ClassA()
-    {
+    public ClassA() {
 
     }
 
@@ -13,8 +12,7 @@ class ClassA {
         return b;
     }
 
-    public void doZ()
-    {
+    public void doZ() {
         b.doZ();
     }
 }

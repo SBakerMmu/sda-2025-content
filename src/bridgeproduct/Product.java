@@ -2,9 +2,9 @@ package bridgeproduct;
 
 public abstract class Product {
 
-    private SellingPrice sellingPrice;
     private final MinimumPrice minimumPrice;
     private final TaxCalculation taxCalculation;
+    private SellingPrice sellingPrice;
 
     protected Product(FullPrice price, MinimumPrice minimumPrice, TaxCalculation taxCalculation) {
         this.sellingPrice = price;

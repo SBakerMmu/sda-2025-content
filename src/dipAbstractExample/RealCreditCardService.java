@@ -1,6 +1,5 @@
 package dipAbstractExample;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 class RealCreditCardService implements AbstractCreditCardService {

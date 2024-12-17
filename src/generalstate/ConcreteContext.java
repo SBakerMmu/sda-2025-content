@@ -3,8 +3,7 @@ package generalstate;
 class ConcreteContext implements Context {
     State state;
 
-    ConcreteContext(State initialState)
-    {
+    ConcreteContext(State initialState) {
         state = initialState;
     }
 
@@ -13,8 +12,7 @@ class ConcreteContext implements Context {
         this.state = state;
     }
 
-    public void request()
-    {
+    public void request() {
         this.state.handle(this);
     }
 }

@@ -1,6 +1,5 @@
 package bridgeproduct;
 
-import globaltradeitemnumber.ASIN;
 import globaltradeitemnumber.InvalidException;
 
 interface ProductFactory {

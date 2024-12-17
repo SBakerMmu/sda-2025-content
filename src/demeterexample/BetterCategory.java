@@ -14,6 +14,7 @@ class BetterCategory {
     public String getDepartmentName() {
         return department.getName();
     }
+
     public String getDepartmentCode() {
         return department.getCode();
     }

@@ -6,8 +6,7 @@ class Product {
     private double discount;
     private double fullPrice;
 
-    public Product(double fullPrice, double minimumSellingPrice)
-    {
+    public Product(double fullPrice, double minimumSellingPrice) {
         this.fullPrice = fullPrice;
         this.minimumSellingPrice = minimumSellingPrice;
         checkInvariants();
@@ -30,10 +29,8 @@ class Product {
     }
 
 
-    private void checkInvariants()
-    {
-        if(getSellingPrice() < minimumSellingPrice)
-        {
+    private void checkInvariants() {
+        if (getSellingPrice() < minimumSellingPrice) {
             //throw execption
         }
     }

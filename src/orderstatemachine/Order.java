@@ -2,6 +2,51 @@ package orderstatemachine;
 
 class Order {
 
+    private final String orderNumber;
+    private final int orderItems;
+    private final EmailService emailService;
+    private final PaymentService paymentService;
+    private State currentState = new Received();
+
+    Order(String orderNumber, int orderItems, EmailService emailService, PaymentService paymentService) {
+        this.orderNumber = orderNumber;
+        this.orderItems = orderItems;
+        this.emailService = emailService;
+        this.paymentService = paymentService;
+    }
+
+    void paymentConfirmed() {
+        currentState.paymentConfirmed();
+    }
+
+    void customerCancelled() {
+        currentState.customerCancelled();
+    }
+
+    void warehouseCancelled() {
+        currentState.warehouseCancelled();
+    }
+
+    void itemPicked() {
+        currentState.itemPicked();
+    }
+
+    void orderPacked() {
+        currentState.orderPacked();
+    }
+
+    void courierPickup() {
+        currentState.courierPickup();
+    }
+
+    void customerReturn() {
+        currentState.customerReturn();
+    }
+
+    public String getCurrentState() {
+        return String.format("%s %s", orderNumber, currentState);
+    }
+
     private interface State {
         void paymentConfirmed();
 
@@ -17,7 +62,6 @@ class Order {
 
         void customerReturn();
     }
-
 
     private abstract static class AbstractState implements State {
         @Override
@@ -54,6 +98,26 @@ class Order {
         public void customerReturn() {
             throw new IllegalStateException();
         }
+    }
+
+    private static class Returned extends AbstractState {
+
+        @Override
+        public String toString() {
+            return "Returned";
+        }
+
+        //There are no legal transitions from Returned state, it is the final state
+    }
+
+    private static class Cancelled extends AbstractState {
+
+        @Override
+        public String toString() {
+            return "Cancelled";
+        }
+
+        //There are no legal transitions from Cancelled state, it is the final state
     }
 
     private class Received extends AbstractState {
@@ -160,71 +224,5 @@ class Order {
             emailService.sendReturnConfirmationEmail(orderNumber);
             currentState = new Returned();
         }
-    }
-
-    private static class Returned extends AbstractState {
-
-        @Override
-        public String toString() {
-            return "Returned";
-        }
-
-        //There are no legal transitions from Returned state, it is the final state
-    }
-
-    private static class Cancelled extends AbstractState {
-
-        @Override
-        public String toString() {
-            return "Cancelled";
-        }
-
-        //There are no legal transitions from Cancelled state, it is the final state
-    }
-
-
-    private final String orderNumber;
-    private final int orderItems;
-    private final EmailService emailService;
-    private final PaymentService paymentService;
-    private State currentState = new Received();
-
-    Order(String orderNumber, int orderItems, EmailService emailService, PaymentService paymentService) {
-        this.orderNumber = orderNumber;
-        this.orderItems = orderItems;
-        this.emailService = emailService;
-        this.paymentService = paymentService;
-    }
-
-    void paymentConfirmed() {
-        currentState.paymentConfirmed();
-    }
-
-    void customerCancelled() {
-        currentState.customerCancelled();
-    }
-
-    void warehouseCancelled() {
-        currentState.warehouseCancelled();
-    }
-
-    void itemPicked() {
-        currentState.itemPicked();
-    }
-
-    void orderPacked() {
-        currentState.orderPacked();
-    }
-
-    void courierPickup() {
-        currentState.courierPickup();
-    }
-
-    void customerReturn() {
-        currentState.customerReturn();
-    }
-
-    public String getCurrentState() {
-        return String.format("%s %s", orderNumber, currentState);
     }
 }

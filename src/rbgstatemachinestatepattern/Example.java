@@ -3,8 +3,7 @@ package rbgstatemachinestatepattern;
 
 public final class Example {
 
-    public static void run()
-    {
+    public static void run() {
         System.out.printf("Two Event Machine using State Pattern%n");
         MultipleEventStateMachine multipleEventStateMachine = new MultipleEventStateMachine();
         multipleEventStateMachine.forward();

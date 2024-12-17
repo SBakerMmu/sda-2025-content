@@ -5,7 +5,6 @@ import java.util.Objects;
 class MinimumPrice {
     public static final MinimumPrice NO_MINIMUM = new MinimumPrice();
     static final double NONE = 0.0d;
-
     final private double price;
 
     private MinimumPrice() {

@@ -2,8 +2,7 @@ package rbgtatemachineswitch;
 
 public final class Example {
 
-    public static void run()
-    {
+    public static void run() {
         System.out.printf("Single Event Machine%n");
         SingleEventStateMachine singleEventStateMachine = new SingleEventStateMachine();
         singleEventStateMachine.forward();

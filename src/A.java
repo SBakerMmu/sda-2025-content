@@ -1,4 +1,4 @@
-abstract class A  {
-    public abstract  void methodA();
+abstract class A {
+    public abstract void methodA();
 }
 
