@@ -1,6 +1,6 @@
 package polymorphictaxrateproduct;
 
-class StandardTax implements TaxCalculation {
+class StandardRateTaxCalculation implements TaxCalculation {
     private static final double STANDARD_RATE = 0.2d;
     private static final int ROUNDING_DECIMALS = 2;
     private static final double ROUNDING_SCALE = Math.pow(10, ROUNDING_DECIMALS);

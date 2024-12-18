@@ -2,13 +2,13 @@ package generalAbstractFamilyFactory;
 
 class ConcreteFactory2 implements AbstractFactory {
     @Override
-    public AbstractInterfaceA createA() {
+    public ConcreteClass2A createA() {
 
         return new ConcreteClass2A();
     }
 
     @Override
-    public AbstractInterfaceB createB() {
+    public ConcreteClass2B createB() {
 
         return new ConcreteClass2B();
     }

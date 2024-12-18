@@ -2,7 +2,7 @@ package generalAbstractSingleFactory;
 
 class ConcreteFactory2 implements AbstractFactory {
     @Override
-    public AbstractInterface create() {
+    public ConcreteClass2 create() {
         return new ConcreteClass2();
     }
 }

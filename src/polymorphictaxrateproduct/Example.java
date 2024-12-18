@@ -13,7 +13,7 @@ public final class Example {
 
 
         MinimumPrice minimumPrice = new MinimumPrice(75.0d);
-        TaxCalculation standardTax = new StandardTax();
+        TaxCalculation standardTax = new StandardRateTaxCalculation();
         Product product = new Product(fullPrice, minimumPrice, standardTax);
         System.out.format("%s%n", product.getPrice());
     }

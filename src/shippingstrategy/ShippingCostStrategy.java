@@ -1,4 +1,4 @@
-﻿package shippingstrategy;
+package shippingstrategy;
 
 import java.util.List;
 

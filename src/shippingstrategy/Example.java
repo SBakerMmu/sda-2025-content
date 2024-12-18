@@ -22,5 +22,19 @@ public final class Example {
         basket.removeProduct(book2);
         System.out.format("Shipping %f%n", basket.getShippingCharge());
 
+        BasketWithShippingStrategy basketWithShippingStrategy = new BasketWithShippingStrategy(new RowShippingStrategy());
+        basketWithShippingStrategy.addProduct(book1);
+        System.out.format("Shipping %f%n", basketWithShippingStrategy.getShippingCharge());
+
+        basketWithShippingStrategy.addProduct(book2);
+        System.out.format("Shipping %f%n", basketWithShippingStrategy.getShippingCharge());
+
+        basketWithShippingStrategy.addProduct(book3);
+        System.out.format("Shipping %f%n", basketWithShippingStrategy.getShippingCharge());
+
+        basketWithShippingStrategy.removeProduct(book2);
+        System.out.format("Shipping %f%n", basketWithShippingStrategy.getShippingCharge());
+
+
     }
 }

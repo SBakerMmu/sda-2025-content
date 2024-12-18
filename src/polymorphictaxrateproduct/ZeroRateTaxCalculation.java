@@ -1,6 +1,6 @@
 package polymorphictaxrateproduct;
 
-class NoTax implements TaxCalculation {
+class ZeroRateTaxCalculation implements TaxCalculation {
     static final double NONE = 0.0d;
 
     @Override
