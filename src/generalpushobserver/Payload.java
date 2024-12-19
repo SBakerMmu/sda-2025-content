@@ -1,0 +1,4 @@
+package generalpushobserver;
+
+class Payload {
+}

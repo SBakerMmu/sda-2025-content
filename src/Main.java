@@ -16,7 +16,7 @@ public class Main {
 
         bridgeproduct.Example.run();
 
-        generalBridge.Example.run();
+        generalbridge.Example.run();
 
         singletoncurrency.Example.run();
 
@@ -26,35 +26,35 @@ public class Main {
 
         decorators.Example.run();
 
-        generalDecorator.Example.run();
+        generaldecorator.Example.run();
 
         chainofresponsiblity.Example.run();
 
-        generalChainOfResponsiblity.Example.run();
+        generalchainofresponsiblity.Example.run();
 
-        generalAdaptor.Example.run();
+        generaladaptor.Example.run();
 
         simpleObserver.Example.run();
 
-        multiObserver.Example.run();
+        multiobserver.Example.run();
 
-        orderObserver.Example.run();
+        orderobserver.Example.run();
 
-        generalPushObserver.Example.run();
+        generalpushobserver.Example.run();
 
-        generalPullObserver.Example.run();
+        generalpullobserver.Example.run();
 
-        dipConcreteExample.Example.run();
+        dipconcreteexample.Example.run();
 
-        dipAbstractExample.Example.run();
+        dipabstractexample.Example.run();
 
         facade.Example.run();
 
-        generalFacade.Example.run();
+        generalfacade.Example.run();
 
         mediator.Example.run();
 
-        generalMediator.Example.run();
+        generalmediator.Example.run();
 
         rbgtatemachineswitch.Example.run();
 
