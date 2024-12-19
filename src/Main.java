@@ -18,6 +18,12 @@ public class Main {
 
         generalBridge.Example.run();
 
+        singletoncurrency.Example.run();
+
+        moneyabstractfactory.Example.run();
+
+        moneyfactorymethod.Example.run();
+
         decorators.Example.run();
 
         generalDecorator.Example.run();
