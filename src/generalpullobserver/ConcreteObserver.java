@@ -2,9 +2,9 @@ package generalpullobserver;
 
 class ConcreteObserver implements Observer {
 
-    private final ConcreteObservable subject;
+    private final Observable subject;
 
-    ConcreteObserver(ConcreteObservable subject) {
+    ConcreteObserver(Observable subject) {
         this.subject = subject;
     }
 

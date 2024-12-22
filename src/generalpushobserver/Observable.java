@@ -1,9 +1,23 @@
 package generalpushobserver;
 
-interface Observable {
-    void attach(Observer observer);
+import java.util.ArrayList;
+import java.util.List;
 
-    void detach(Observer observer);
+class Observable  {
+    final List<Observer> observers = new ArrayList<>();
 
-    void update();
+    public void attach(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void detach(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void update() {
+        Payload payload = new Payload();
+        for (Observer observer : observers) {
+            observer.update(payload);
+        }
+    }
 }
