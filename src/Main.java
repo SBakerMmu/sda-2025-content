@@ -1,6 +1,9 @@
 public class Main {
     public static void main(String[] args) {
 
+        abstractdiceshaker.Example.run();
+
+        interfacediceshaker.Example.run();
 
         javarecapsubtypes.Example.run();
 
@@ -32,6 +35,8 @@ public class Main {
 
         generalchainofresponsiblity.Example.run();
 
+        decorateddiceshaker.Example.run();
+
         generaladaptor.Example.run();
 
         simpleObserver.Example.run();
@@ -43,6 +48,8 @@ public class Main {
         generalpushobserver.Example.run();
 
         generalpullobserver.Example.run();
+
+        observeddicegame.Example.run();
 
         dipconcreteexample.Example.run();
 
