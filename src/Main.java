@@ -59,6 +59,8 @@ public class Main {
 
         generalfacade.Example.run();
 
+        facadeddicegame.Example.run();
+
         mediator.Example.run();
 
         generalmediator.Example.run();

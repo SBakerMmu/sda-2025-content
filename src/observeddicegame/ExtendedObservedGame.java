@@ -3,13 +3,13 @@ package observeddicegame;
 import java.util.ArrayList;
 import java.util.List;
 
-class ObservedGame  implements Game {
+class ExtendedObservedGame implements Game {
     private static final int HOME = 1;
     private static final int END = 6;
     private int currentPosition;
-    private final List<GameObserver> observers = new ArrayList<>();
+    private final List<ExtendedGameObserver> observers = new ArrayList<>();
 
-    ObservedGame() {
+    ExtendedObservedGame() {
         reset();
     }
 
@@ -19,12 +19,12 @@ class ObservedGame  implements Game {
         currentPosition = HOME;
     }
 
-    void add(GameObserver observer)
+    void add(ExtendedGameObserver observer)
     {
         observers.add(observer);
     }
 
-    void detach(GameObserver observer)
+    void detach(ExtendedGameObserver observer)
     {
         observers.remove(observer);
     }
@@ -45,18 +45,17 @@ class ObservedGame  implements Game {
     private int onOverflow(int candidatePosition)
     {
         int newPosition = candidatePosition % END;
-        for(GameObserver observer: observers)
-        {
-            observer.onOverflow(new OverflowEvent(currentPosition, newPosition));
-        }
+        OverflowHandler handler = newPosition == HOME ? new HomeOverflowHandler(observers) : new NotHomeOverflowHandler(observers);
+        handler.handle(currentPosition, newPosition);
         return newPosition;
     }
 
     private int onUnderflow(int candidatePosition)
     {
-        for(GameObserver observer: observers)
+        UnderflowEvent event = new UnderflowEvent(currentPosition, candidatePosition);
+        for(ExtendedGameObserver observer: observers)
         {
-            observer.onUnderflow(new UnderflowEvent(currentPosition, candidatePosition));
+            observer.onUnderflow(event);
         }
         return candidatePosition;
     }
