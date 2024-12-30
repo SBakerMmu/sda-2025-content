@@ -3,37 +3,37 @@ package observeddicegame;
 import java.util.ArrayList;
 import java.util.List;
 
-class ObservedGame  implements Game {
+class ObservedGameBoard implements GameBoard {
     private static final int HOME = 1;
     private static final int END = 6;
     private int currentPosition;
-    private final List<GameObserver> observers = new ArrayList<>();
+    private final List<GameBoardObserver> observers = new ArrayList<>();
 
-    ObservedGame() {
+    ObservedGameBoard() {
         reset();
     }
 
     @Override
-    public void reset()
-    {
-        currentPosition = HOME;
+    public void reset() {
+        setPosition(HOME);
     }
 
-    void add(GameObserver observer)
+    @Override
+    public void setPosition(int position) {
+        currentPosition = position;
+    }
+
+    void add(GameBoardObserver observer)
     {
         observers.add(observer);
     }
 
-    void detach(GameObserver observer)
+    void detach(GameBoardObserver observer)
     {
         observers.remove(observer);
     }
 
-    @Override
-    public void setPosition(int position)
-    {
-        currentPosition = position;
-    }
+
 
     @Override
     public void advance(int count)
@@ -42,21 +42,22 @@ class ObservedGame  implements Game {
         currentPosition = (newPosition > END) ? onOverflow(newPosition) : onUnderflow(newPosition);
     }
 
+
     private int onOverflow(int candidatePosition)
     {
         int newPosition = candidatePosition % END;
-        for(GameObserver observer: observers)
+        for(GameBoardObserver observer: observers)
         {
-            observer.onOverflow(new OverflowEvent(currentPosition, newPosition));
+            observer.onEvent(new OverflowEvent(currentPosition, newPosition));
         }
         return newPosition;
     }
 
     private int onUnderflow(int candidatePosition)
     {
-        for(GameObserver observer: observers)
+        for(GameBoardObserver observer: observers)
         {
-            observer.onUnderflow(new UnderflowEvent(currentPosition, candidatePosition));
+            observer.onEvent(new UnderflowEvent(currentPosition, candidatePosition));
         }
         return candidatePosition;
     }

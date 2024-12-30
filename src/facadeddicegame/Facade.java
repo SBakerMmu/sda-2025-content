@@ -4,14 +4,12 @@ class Facade implements FacadeInterface {
     @Override
     public int play() {
         DiceShaker shaker = new SingleDiceShaker();
-        Game game = new Game();
+        GameBoard game = new GameBoard();
         game.advance(shaker.shake());
-        int count = 1;
         while(!game.isHome())
         {
             game.advance(shaker.shake());
-            count++;
         }
-        return count;
+        return game.getMoves();
     }
 }

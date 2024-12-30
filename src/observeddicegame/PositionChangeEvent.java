@@ -3,16 +3,16 @@ package observeddicegame;
 import java.util.Objects;
 
 abstract class PositionChangeEvent {
-    private final int originalPosition;
+    private final int oldPosition;
     private final int newPosition;
 
-    PositionChangeEvent(int originalPosition, int newPosition) {
-        this.originalPosition = originalPosition;
+    PositionChangeEvent(int oldPosition, int newPosition) {
+        this.oldPosition = oldPosition;
         this.newPosition = newPosition;
     }
 
-    public int originalPosition() {
-        return originalPosition;
+    public int oldPosition() {
+        return oldPosition;
     }
 
     public int newPosition() {
@@ -24,12 +24,12 @@ abstract class PositionChangeEvent {
         if (obj == this) return true;
         if (obj == null || obj.getClass() != this.getClass()) return false;
         var that = (PositionChangeEvent) obj;
-        return this.originalPosition == that.originalPosition &&
+        return this.oldPosition == that.oldPosition &&
                 this.newPosition == that.newPosition;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(originalPosition, newPosition);
+        return Objects.hash(oldPosition, newPosition);
     }
 }

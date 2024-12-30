@@ -13,7 +13,7 @@ class PricingMediator implements Mediator {
     public void onChanged(Colleague colleague) {
 
         if (colleague == basket) {
-            discounter.setTotal(basket.getTotal());
+            discounter.setGoodsValue(basket.getTotal());
         }
         if (colleague == discounter) {
             basket.setDiscount(discounter.getDiscount());

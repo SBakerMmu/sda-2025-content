@@ -1,28 +1,36 @@
 package observeddicegame;
 
-class ShakeCommand  implements Command {
+class ShakeCommand implements Command {
 
-    static class Observer implements GameObserver
-    {
-
-        private PositionChangeEvent event;
+    static class Observer implements ExtendedGameBoardObserver {
+        PositionChangeEvent event;
 
         @Override
-        public void onOverflow(OverflowEvent overflowEvent) {
+        public void onEvent(OverflowEvent overflowEvent) {
             event = overflowEvent;
         }
 
         @Override
-        public void onUnderflow(UnderflowEvent underflowEvent) {
+        public void onEvent(UnderflowEvent underflowEvent) {
             event = underflowEvent;
+        }
+
+        @Override
+        public void onEvent(HomeEvent homeEvent) {
+            event = homeEvent;
+        }
+
+        @Override
+        public void onEvent(PositionSetEvent setEvent) {
+            event = setEvent;
         }
     }
 
     private final DiceShaker shaker;
     private final Observer observer;
-    private final ObservedGame game;
+    private final ExtendedObservedGameBoard game;
 
-    public ShakeCommand(DiceShaker shaker, ObservedGame game) {
+    public ShakeCommand(DiceShaker shaker, ExtendedObservedGameBoard game) {
         this.shaker = shaker;
         this.observer = new Observer();
         this.game = game;
@@ -37,7 +45,7 @@ class ShakeCommand  implements Command {
 
     @Override
     public void undo() {
-        game.setPosition(observer.event.originalPosition());
+        game.setPosition(observer.event.oldPosition());
     }
 
 }

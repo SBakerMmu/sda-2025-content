@@ -1,14 +1,14 @@
 package observeddicegame;
 
-final class UnderflowEvent extends PositionChangeEvent {
+final class PositionSetEvent extends PositionChangeEvent {
 
-    UnderflowEvent(int oldPosition, int newPosition) {
-        super(oldPosition, newPosition);
+    PositionSetEvent(int originalPosition, int newPosition) {
+        super(originalPosition, newPosition);
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("UnderflowEvent{");
+        final StringBuilder sb = new StringBuilder("PositionSetEvent{");
         sb.append("oldPosition=").append(oldPosition());
         sb.append(", newPosition=").append(newPosition());
         sb.append('}');

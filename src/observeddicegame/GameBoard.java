@@ -1,7 +1,8 @@
 package observeddicegame;
 
-interface Game {
-    void reset();
+interface GameBoard {
     void setPosition(int position);
     void advance(int count);
+    void reset();
 }
+

@@ -1,20 +1,17 @@
 package observeddicegame;
 
-import java.util.Objects;
-
 final class OverflowEvent extends PositionChangeEvent {
 
-    OverflowEvent(int originalPosition, int newPosition) {
-        super(originalPosition, newPosition);
+    OverflowEvent(int oldPosition, int newPosition) {
+        super(oldPosition, newPosition);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("OverflowEvent{");
-        sb.append("originalPosition=").append(originalPosition());
+        sb.append("oldPosition=").append(oldPosition());
         sb.append(", newPosition=").append(newPosition());
         sb.append('}');
         return sb.toString();
     }
-
 }

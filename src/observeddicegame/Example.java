@@ -4,44 +4,51 @@ import java.util.Stack;
 
 public final class Example {
 
-    private static class ExampleObserver implements GameObserver, ExtendedGameObserver
+    private static class ExampleObserver implements ExtendedGameBoardObserver
     {
 
         @Override
-        public void onOverflow(OverflowEvent overflowEvent) {
+        public void onEvent(OverflowEvent overflowEvent) {
             System.out.format("%s%n", overflowEvent);
         }
 
         @Override
-        public void onUnderflow(UnderflowEvent overflowEvent) {
+        public void onEvent(UnderflowEvent overflowEvent) {
             System.out.format("%s%n", overflowEvent);
         }
 
         @Override
-        public void onWin(WinEvent winEvent) {
-            System.out.format("%s%n", winEvent);
+        public void onEvent(HomeEvent homeEvent) {
+            System.out.format("%s%n", homeEvent);
+        }
+
+        @Override
+        public void onEvent(PositionSetEvent setEvent) {
+            System.out.format("%s%n", setEvent);
         }
     }
 
 
 
     public static void run() {
-        ObservedGame game = new ObservedGame();
+        NonObservedGameBoard nonObservedGameBoard = new NonObservedGameBoard();
+        play(nonObservedGameBoard);
+
+        ObservedGameBoard game = new ObservedGameBoard();
         game.add(new ExampleObserver());
         play(game);
 
-        ExtendedObservedGame extendedGame = new ExtendedObservedGame();
+        ExtendedObservedGameBoard extendedGame = new ExtendedObservedGameBoard();
         extendedGame.add(new ExampleObserver());
         play(extendedGame);
 
-
         SixSidedDiceShaker shaker = new SixSidedDiceShaker();
         Stack<Command> commands = new Stack<>();
-        ShakeCommand command = new ShakeCommand(shaker, game);
+        ShakeCommand command = new ShakeCommand(shaker, extendedGame);
         command.execute();
         commands.push(command);
 
-        command = new ShakeCommand(shaker, game);
+        command = new ShakeCommand(shaker, extendedGame);
         command.execute();
         commands.push(command);
 
@@ -49,7 +56,7 @@ public final class Example {
         commands.pop().undo();
     }
 
-    private static void play(Game game)
+    private static void play(GameBoard game)
     {
         game.advance(1);
         game.advance(1);
