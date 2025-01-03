@@ -1,5 +1,5 @@
 package generalstate;
 
 interface Context {
-    void changeState(State state);
+    void setState(State state);
 }

@@ -138,6 +138,7 @@ class Order {
         public void customerCancelled() {
             paymentService.refundCustomer(orderNumber);
             emailService.sendCustomerCancellationConfirmationEmail(orderNumber);
+            currentState = new Cancelled();
         }
 
     }
